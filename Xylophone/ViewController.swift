@@ -19,6 +19,15 @@ class ViewController: UIViewController {
     @IBAction func keyPressed(_ sender: UIButton) {
         let buttonTitle = sender.titleLabel?.text ?? "nil"
 //        print(buttonTitle)
+//        make the button opacity to 0.5
+        sender.alpha=0.5
+//        after certain time the button alpha must back to normal (1.0)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+            UIView.animate(withDuration: 0.2) {
+                sender.alpha=1.0
+            }
+            
+        }
         playSound(buttonNote:buttonTitle)
     }
     
